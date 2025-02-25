@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Costureira - Orçamento</title>
+    <link rel="stylesheet" href="orcamento.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container my-5 py-4 shadow-sm rounded">
+    <h2 class="text-center">Solicite seu Orçamento</h2>
+    <form id="orcamentoForm">
+        <div class="mb-3">
+            <label for="nome" class="form-label">Nome Completo</label>
+            <input type="text" class="form-control" id="nome">
+        </div>
+        <div class="mb-3">
+            <label for="telefone" class="form-label">Telefone (WhatsApp)</label>
+            <input type="text" class="form-control" id="telefone" placeholder="(xx) xxxxx-xxxx">
+        </div>
+        <div class="mb-3">
+            <label for="servico" class="form-label">Tipo de Serviço</label>
+            <select id="servico" class="form-select">
+                <option>Confecção sob medida</option>
+                <option>Ajuste ou reparos</option>
+                <option>Personalização</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="detalhes" class="form-label">Detalhes adicionais</label>
+            <textarea class="form-control" id="detalhes" rows="4"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Enviar Orçamento</button>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.getElementById('orcamentoForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const nome = document.getElementById('nome').value;
+        const telefone = document.getElementById('telefone').value;
+        const servico = document.getElementById('servico').value;
+        const detalhes = document.getElementById('detalhes').value;
+
+        const mensagem = encodeURIComponent(`Olá ${nome}!\n\nSegue seu orçamento:\n\nTipo de serviço: ${servico}\nDetalhes: ${detalhes}`);
+        const whatsappLink = `https://wa.me/55${telefone}?text=${mensagem}`;
+
+        window.open(whatsappLink, '_blank');
+    });
+</script>
+</body>
+</html>

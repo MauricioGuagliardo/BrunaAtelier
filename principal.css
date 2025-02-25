@@ -1,0 +1,100 @@
+/* CSS - styles.css atualizado com fundo do contato ajustado e imagem destacada */
+
+body {
+    background-color: #ffffff;
+    font-family: Arial, sans-serif;
+    color: #343a40;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(tesoura.png);
+    background-repeat: no-repeat;
+    background-size:500px;
+    background-position: center;
+    opacity: 0.5;
+    animation: moverFundo 20s infinite alternate ease-in-out;
+    z-index: -1;
+}
+
+@keyframes moverFundo {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    25% {
+        transform: translate(20px, 30px) scale(1.1);
+    }
+    50% {
+        transform: translate(-30px, 20px) scale(1.3);
+    }
+    75% {
+        transform: translate(30px, -20px) scale(1.1);
+    }
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+.header-primary {
+    background-color: #212529;
+    color: #ffffff;
+    padding: 40px 20px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.header-primary h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.header-primary p {
+    font-size: 1.2rem;
+}
+
+.section-title {
+    color: #212529;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+section {
+    padding: 25px;
+    margin-bottom: 20px;
+}
+
+.placeholder {
+    background-color: #e0e0e0;
+    border-radius: 5px;
+}
+
+.contato-section {
+    background-color: #212529;
+    color: #ffffff;
+    padding: 30px;
+    text-align: center;
+    width: 100%;
+}
+
+.contato-section .d-flex {
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.btn-success {
+    background-color: #020202;
+    color: #f8f5f5;
+    border: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+.btn-success:hover {
+    background-color: #e0e0e0;
+}
